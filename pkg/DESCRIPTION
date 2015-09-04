@@ -1,0 +1,20 @@
+Package: validate.adjust
+Maintainer: Mark van der Loo <mark.vanderloo@gmail.com>
+License: GPL-3
+Title: Correct Numerical Data To Satisfy Linear (In)Equality Constraints
+LazyData: no
+Type: Package
+LazyLoad: yes
+Author: Mark van der Loo, Edwin de Jonge
+Description: Adjust records minimally to satisfy linear 
+    (in)equality rules defined with the 'validate' package. Typical use of the methods
+    implemented in this package is to adjust values that have been imputed without 
+    taking the restrictions into account.
+Version: 0.0.1
+Depends: R (>= 3.0.0)
+URL: https://github.com/data-cleaning/validate.adjust
+BugReports: https://github.com/data-cleaning/validate.spa/issues
+Date: 2015-08-28
+Imports: methods, validate, supral
+Suggests: testthat, knitr
+VignetteBuilder: knitr

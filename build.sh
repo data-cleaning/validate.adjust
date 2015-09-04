@@ -16,6 +16,9 @@ done
 echo "######## Removing building information..."
 rm -rf output
 
+# untill supral hits CRAN, get from mark's drat.
+$R -e "drat::addRepo('markvanderloo');install.packages('supral')"
+
 echo "######## Copying DESCRIPTION to pkg directory..."
 cp build/DESCRIPTION pkg
 #cp build/NAMESPACE pkg
