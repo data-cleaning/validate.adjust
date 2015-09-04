@@ -18,6 +18,7 @@ test_that("adjust happy flow",{
   
   # simplest case
   expect_equal(adjust(dat, v), data.frame(x=c(5,2,6.5),y=c(5,8,3.5)))
+  expect_equal(adjust(data.frame(x=0,y=0), v), data.frame(x=5,y=5))
 
   # weights keeping ratio equal
   ad <- adjust(dat,v,weight="ratio")

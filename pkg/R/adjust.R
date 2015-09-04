@@ -68,8 +68,12 @@ setMethod("adjust", c("data.frame","validator")
       function(...) w
     } else if ( identical(w,"ratio") ){
       function(r,...){
-        w <- abs(1/r)
-        w[w==Inf] <- median(w[w!=Inf])
+        if ( all(abs(r) < 1e-12) ){
+          w <- rep(1,length(r))
+        } else {
+          w <- abs(1/r)
+          w[w==Inf] <- median(w[w!=Inf])
+        }
         w
       }
     } else if ( is.numeric(w) && length(w)==nvar ) {
