@@ -11,6 +11,7 @@ install:
   - cd ./pkg
   - ../travis-tool.sh install_r devtools
   - ../travis-tool.sh install_r roxygen2
+  - ../travis-tool.sh install_r knitr
   - R -e "install.packages('supral',repos='http://markvanderloo.github.io/drat/')"
   - R -e "install.packages('validate',repos='http://cran.rstudio.com')"
   - R -e "roxygen2::update_collate('.');devtools::document()"
