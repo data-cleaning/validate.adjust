@@ -11,7 +11,7 @@ _Beta_ versions of the package can be installed through our [drat repository](ht
 ```
 install.packages("drat")
 ```
-Next, install `validate` as follows.
+Next, install `validate.adjust` as follows.
 ```
 drat::adRepo("markvanderloo")
 install.packages("supral")
