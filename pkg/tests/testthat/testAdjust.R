@@ -20,10 +20,18 @@ test_that("adjust happy flow",{
   expect_equal(adjust(dat, v), data.frame(x=c(5,2,6.5),y=c(5,8,3.5)))
   expect_equal(adjust(data.frame(x=0,y=0), v), data.frame(x=5,y=5))
 
+  
   # weights keeping ratio equal
   ad <- adjust(dat,v,weight="ratio")
   i <- c(1,3)
   expect_equal(ad$x[i]/ad$y[i], dat$x[i]/dat$y[i] ) 
+
+  # equal ratio but with (numerically) zero record
+  
+  expect_equal(
+    adjust(data.frame(x=0.0,y=1e-13),v,weight='ratio')
+    ,data.frame(x=5,y=5)
+  )
   
   # test single weights
   ad <- adjust(dat,v,weight=c(1,2)) 
@@ -48,7 +56,8 @@ test_that("adjust happy flow",{
 
 test_that("adjust not-so happy flow",{
   expect_message(adjust(dat,validator(x>0,mean(x)>0)) )    
-  expect_error(adjust(within(dat,x[1]<-"a"),v))  
+  expect_error(adjust(within(dat,x[1]<-"a"),v)) 
+  expect_error(adjust(dat,validator(x>0),weight="foo"))
 })
 
 
