@@ -15,6 +15,6 @@ Depends: R (>= 3.0.0)
 URL: https://github.com/data-cleaning/validate.adjust
 BugReports: https://github.com/data-cleaning/validate.spa/issues
 Date: 2015-08-28
-Imports: methods, validate, supral
+Imports: methods, validate, lintools
 Suggests: testthat, knitr
 VignetteBuilder: knitr

@@ -5,7 +5,7 @@
 #' @docType package
 #' @import methods
 #' @import validate
-#' @import supral
+#' @import lintools
 #'
 {}
 
@@ -34,7 +34,7 @@ setGeneric("adjust",function(dat, rules,...) standardGeneric('adjust'))
 #' @param tol Convergence criterion: maximum contribution of a single value to the final deviation
 #' from the rules.
 #' @param maxiter Maximum number of iterations for the optimization algorithm per record
-#' (see \code{supral::\link[supral]{project}})
+#' (see \code{lintools::\link[lintools]{project}})
 #' @param ... Currently unused.
 #' @rdname adjust
 setMethod("adjust", c("data.frame","validator")
@@ -55,7 +55,7 @@ setMethod("adjust", c("data.frame","validator")
     stop("Linear rules applied to non-numeric data")
   }
  
-  # Organize the linear coeff's before passing them to supral::project 
+  # Organize the linear coeff's before passing them to lintools::project 
   coef <- v$linear_coefficients()
   eqs <- coef$operators == "=="
   A <- coef$A[c(which(eqs),which(!eqs)),,drop=FALSE]
@@ -112,7 +112,7 @@ adjust_vector <- function(x, adjust, A, b, neq, w, tol, maxiter ){
     A <- A[,adjust,drop=FALSE]
     # TODO: redundancy removal
   }
-  out <- supral::project(x[adjust], A=A, b=b, neq=neq, w=w[adjust], tol=tol, maxiter = maxiter)
+  out <- lintools::project(x[adjust], A=A, b=b, neq=neq, w=w[adjust], tol=tol, maxiter = maxiter)
   x[adjust] <- out$x
   x
 }

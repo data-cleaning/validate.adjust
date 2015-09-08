@@ -36,7 +36,7 @@ applied to each record.}
 from the rules.}
 
 \item{maxiter}{Maximum number of iterations for the optimization algorithm per record
-(see \code{supral::\link[supral]{project}})}
+(see \code{lintools::\link[lintools]{project}})}
 }
 \description{
 Adjust records to satisfy linear (in)equality constraints
