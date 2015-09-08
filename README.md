@@ -13,8 +13,6 @@ install.packages("drat")
 ```
 Next, install `validate.adjust` as follows.
 ```
-drat::adRepo("markvanderloo")
-install.packages("supral")
 drat::addRepo("data-cleaning")
 install.packages("validate.adjust")
 ```
